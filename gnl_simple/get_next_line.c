@@ -1,27 +1,20 @@
 #include "get_next_line.h"
 
-
 char	*get_next_line(int fd)
 {
 	static char		*buffer;
 	char			reader[BUFFER_SIZE];
+	char			*temp;
+//	char			*ret;
 
-	
-	//if (buffer == 0)
-	//	buffer = (char *)malloc(BUFFER_SIZE * sizeof(char));
-	//if (*buffer == 0)
-	//	read(fd, reader, BUFFER_SIZE);
-	//else
-	//{
-		while (search_string(buffer))
-		{
-			if (buffer != 0)
-				
-			read(fd, reader, BUFFER_SIZE);
-			buffer = append(buffer, reader);
-		}
-
-	//}
-	
-		
+	temp = NULL;	
+	while (search_string(buffer) > 0)
+	{
+		temp = buffer;
+		read(fd, reader, BUFFER_SIZE);
+		buffer = append(temp, reader);
+		if (temp != 0)
+			free(temp);
+	} 
+	return (build_string(buffer));	
 }
