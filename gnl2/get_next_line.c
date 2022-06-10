@@ -8,7 +8,7 @@ char	*get_next_line(int fd)
 	size_t		bytes_read;
 	size_t		found_string;
 
-	if (fd == -1)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	next_line = NULL;
 	found_string = 0;

@@ -12,25 +12,25 @@ int	main(void)
 	char		*str;
 	int			fd;
 	
-	fd = open("texto.txt", O_RDONLY);
-	str = get_next_line(fd);
+	fd = open("taaexto.txt", O_RDONLY);
+	str = get_next_line();
 	printf("%s", str);
 	free(str);
-	str = get_next_line(fd);
-	printf("%s", str);
-	free(str);
-	str = get_next_line(fd);
-	printf("%s", str);
-	free(str);
-	str = get_next_line(fd);
-	printf("%s", str);
-	free(str);
-	str = get_next_line(fd);
-	printf("%s", str);
-	free(str);
-	str = get_next_line(fd);
-	printf("%s", str);
-	free(str);
+//	str = get_next_line(fd);
+//	printf("%s", str);
+//	free(str);
+//	str = get_next_line(fd);
+//	printf("%s", str);
+//	free(str);
+//	str = get_next_line(fd);
+//	printf("%s", str);
+//	free(str);
+//	str = get_next_line(fd);
+//	printf("%s", str);
+//	free(str);
+//	str = get_next_line(fd);
+//	printf("%s", str);
+//	free(str);
 
 	close(fd);
 
