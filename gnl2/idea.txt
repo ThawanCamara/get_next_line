@@ -1,4 +1,4 @@
-__INPUTS__
+\n__INPUTS__
 	# recebidas
 	- int		fd
 	- size_t	BUFFER_SIZE

@@ -5,14 +5,43 @@
 
 int	main(void)
 {
-	char	 *str;
-	int		fd;
+	//static char s[10] = "12\n\t567890";
 
-	fd = open("idea.txt", O_RDONLY);
-	read(fd, str, 10);
-	printf("%s\n", str);
-	while 
+	//offset_buffer(s);
+	//printf("|%s|\n", s);
+	char		*str;
+	int			fd;
+	
+	fd = open("texto.txt", O_RDONLY);
+	str = get_next_line(fd);
+	printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	printf("%s", str);
+	free(str);
+	str = get_next_line(fd);
+	printf("%s", str);
+	free(str);
+
 	close(fd);
+
+//	char	*s = "oops\ntem quebras de li\nnha por aqui";
+//	char	*dest;
+//
+//	dest = build_string(s);
+//
+//	printf("%s\n", dest);
+//
+//	free(dest);
 
 	return (0);
 }
