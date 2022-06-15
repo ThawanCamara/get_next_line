@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tde-souz <tde-souz@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/14 19:18:08 by tde-souz          #+#    #+#             */
+/*   Updated: 2022/06/15 00:20:18 by tde-souz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 size_t	ft_strlen(const char *s)
@@ -35,7 +47,7 @@ char	*ft_append(char *dst, const char *src, size_t len)
 
 	if (len == 0)
 		len = ft_strlen(src);
-	len_s = ft_strlen(src); //malloc excessivo
+	len_s = ft_strlen(src);
 	len_d = ft_strlen(dst);
 	ret = (char *)malloc((len_d + len_s + 1) * sizeof(char));
 	if (ret == 0)
@@ -50,7 +62,6 @@ char	*ft_append(char *dst, const char *src, size_t len)
 	return (ptr);
 }
 
-//TRATAR O \n AQUI
 char	*ft_strdup(const char *s1)
 {
 	size_t	len;
@@ -71,17 +82,16 @@ char	*ft_strdup(const char *s1)
 	return (ret);
 }
 
-#include <stdio.h>
 char	*offset_buffer(char *s)
 {
 	size_t	i;
 	size_t	len;
-	
+
 	i = 0;
 	len = 0;
 	while (*(s + len) && *(s + len) != '\n')
 		len++;
-	if (*(s	+ len) == '\n')
+	if (*(s + len) == '\n')
 		len++;
 	while (*(s + i + len))
 	{

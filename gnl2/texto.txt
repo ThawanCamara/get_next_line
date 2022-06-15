@@ -1,5 +1,2 @@
-linha 1
-linha 2
-linha 33
-linha 4
-linha final
+01234567890123456789012345678901234567890
+ass
