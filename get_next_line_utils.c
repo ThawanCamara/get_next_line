@@ -1,37 +1,57 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tde-souz <tde-souz@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/21 01:54:43 by tde-souz          #+#    #+#             */
+/*   Updated: 2022/06/21 01:56:29 by tde-souz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
-t_fd_node	*create_node(int fd)
+size_t	valid_buffer_len(char *buffer)
 {
-	t_fd_node	*new_fd;
+	size_t	len;
 
-	new_fd = (t_fd_node*)malloc(sizeof(t_fd_node));
-	new_fd->index = fd;
-	new_fd->line = NULL;
-	new_fd-> next = NULL;
-
-	return (new_fd);
+	len = 0;
+	while (buffer[len] != 0)
+		if (buffer[len++] == '\n')
+			break ;
+	return (len);
 }
 
-//void	add_node(t_fd_node **current, t_fd_node *new)
-//{
-//	if (*current == NULL)
-//		*current = new;
-//	else
-//	{
-//		while (*current->next != NULL)
-//			*current = *current->next;
-//		*current->next = new;
-//	}
-//}
+size_t	write_buffer(char *buffer, int fd)
+{	
+	ssize_t	bytes_read;
 
-t_fd_node	*get_node(int fd, t_fd_node **current)
+	bytes_read = 0;
+	if (*buffer == 0)
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+	return (bytes_read);
+}
+
+size_t	is_line_ready(char *line)
 {
-	while (*current->next != NULL)
-	{
-		if (*current->index == fd)
-			return (*current);
-		*current = *current->next;
-	}
-	current->next = create_node(fd);
-	return (*current->next);
+	size_t	i;
+
+	if (line == NULL)
+		return (0);
+	i = 0;
+	while (line[i])
+		if (line[i++] == '\n')
+			return (1);
+	return (0);
+}
+
+size_t	ft_strlen(char *string)
+{
+	size_t	counter;
+
+	counter = 0;
+	while (*string++)
+		counter++;
+	return (counter);
 }

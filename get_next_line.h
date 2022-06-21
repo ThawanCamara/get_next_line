@@ -5,26 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tde-souz <tde-souz@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/03 09:50:38 by tde-souz          #+#    #+#             */
-/*   Updated: 2022/06/06 19:41:34 by tde-souz         ###   ########.fr       */
+/*   Created: 2022/06/21 01:54:48 by tde-souz          #+#    #+#             */
+/*   Updated: 2022/06/21 01:54:55 by tde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <unistd.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 char	*get_next_line(int fd);
 
-typedef struct	s_fd_node
-{
-	int					index;
-	char				*line;
-	struct s_fd_node	*next;
-}	t_fd_node;
-
-t_fd_node	*create_node(int fd);
+char	*build_line(char *buffer);
+char	*append_line(char *line, char *buffer);
+size_t	valid_buffer_len(char *buffer);
+size_t	is_line_ready(char *line);
+size_t	write_buffer(char *buffer, int fd);
+size_t	ft_strlen(char *string);
+void	offset_buffer(char *buffer);
 
 #endif
